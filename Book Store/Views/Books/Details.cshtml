@@ -1,0 +1,64 @@
+﻿@model Books
+
+@{
+    ViewData["Title"] = "Book details";
+}
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <div class="card mb-12">
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-header text-black bg-black">
+                        <p class="card-text">
+                            <h5 class="card-title">
+                                @Model.BookName
+                            </h5>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="@Model.ImageURL" style="width:100%" alt="@Model.BookName">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <p class="card-text">@Model.Overview</p>
+                        <p class="card-text">
+                            <b>Shop: </b>
+                            <a asp-controller="Shops" asp-action="Details" asp-route-id="@Model.ShopId">
+                                @Model.Shop.ShopName
+                            </a>
+                        </p>
+                        <p class="card-text">
+                            <b>Publisher: </b>
+                            <a asp-controller="Publishers" asp-action="Details" asp-route-id="@Model.PublisherId">
+                                @Model.Publisher.FullName
+                            </a>
+                        </p>
+                        <p class="card-text"><b>Category: </b>@Model.Category</p>
+                        <p class="card-text">
+                            <b>Auhtors: </b>
+                        <p class="card-text">
+                            <img class="border-info rounded-circle" src="@Model.Author.PictureURL" style="max-width: 150px; height: auto;border-radius: 50%;" />
+
+                            <b>Author: </b>
+                            <a asp-controller="Authors" asp-action="Details" asp-route-id="@Model.AuthorId">
+                                    @Model.Author.Name
+                            </a>
+                        </p>
+                       
+
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card-footer">
+                        <p class="card-text">
+                            <a class="btn btn-outline-primary float-right" asp-action="Index">
+                                Back to List
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+[
+  {
+    "BookName": "Life",
+    "Overview": "This is the Life movie description",
+    "Price": 39.50,
+    "ImageURL": "http://dotnethow.net/images/movies/movie-3.jpeg",
+    "ShopId": 3,
+    "PublisherId": 3,
+    "Category": "Physical"
+  },
+  {
+    "BookName": "The Shawshank Redemption",
+    "Overview": "This is the Shawshank Redemption description",
+    "Price": 29.50,
+    "ImageURL": "http://dotnethow.net/images/movies/movie-1.jpeg",
+    "ShopId": 1,
+    "PublisherId": 1,
+    "Category": "Mathematical"
+  },
+
+  {
+    "BookName": "Ghost",
+    "Overview": "This is the Ghost movie description",
+    "Price": 39.50,
+    "ImageURL": "http://dotnethow.net/images/movies/movie-4.jpeg",
+    "ShopId": 4,
+    "PublisherId": 4,
+    "Category": "Languages"
+  },
+
+  {
+    "BookName": "Race",
+    "Overview": "This is the Race movie description",
+    "Price": 39.50,
+    "ImageURL": "http://dotnethow.net/images/movies/movie-6.jpeg",
+    "ShopId": 1,
+    "PublisherId": 2,
+    "Category": "Chemical"
+  },
+
+  {
+    "BookName": "Scoob",
+    "Overview": "This is the Scoob movie description",
+    "Price": 39.50,
+    "ImageURL": "http://dotnethow.net/images/movies/movie-7.jpeg",
+    "ShopId": 1,
+    "PublisherId": 3,
+    "Category": "ComputerScience"
+  },
+  {
+    "BookName": "Cold Soles",
+    "Overview": "This is the Cold Soles movie description",
+    "Price": 39.50,
+    "ImageURL": "http://dotnethow.net/images/movies/movie-8.jpeg",
+    "ShopId": 1,
+    "PublisherId": 5,
+    "Category": "ComputerScience"
+  }
+
+]

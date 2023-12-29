@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Books>
+
+@{
+    ViewData["Title"] = "List of Books";
+}
+<style>
+body {
+        background: url('https://www.pixground.com/wp-content/uploads/2023/07/Abstract-Gradient-Blue-Layers-AI-Generated-4K-Wallpaper-jpg.webp');
+        background-size: cover;
+       
+    }
+
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: purple;
+        border-radius: 10px;
+    }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b30000;
+        }
+</style>
+<div class="row">
+    @foreach (var item in Model)
+    {
+      <div class="row border-custom mb-3">
+    <div class="col-md-4 col-xs-6">
+                <img class="animate__animated animate__fadeInDown" src="@item.ImageURL" style="border-radius: 27px;width: 61%;margin-left: 80px;" alt="@item.BookName">
+    </div>
+    <div class="col-md-8">
+                <div class="card mb-3 custom-card" style="max-width: 540px; background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);">
+                    <div class="card-header text-white bg-gradient">
+                <p class="card-text">
+                    <h5 class="card-title custom-title glow" style="color:#000;">
+                        @item.BookName
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <a class="text-white float-right" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
+                        }
+                    </h5>
+                </p>
+            </div>
+                    <div class="card-body animate__animated animate__fadeInDown">
+                <p class="card-text custom-description">@item.Overview</p>
+                <p class="card-text"><b>Library: </b>@item.Shop.ShopName</p>
+                <p class="card-text"><b>Category: </b>@item.Category</p>
+              
+            </div>
+            <div class="card-footer custom-footer">
+                <p class="card-text">
+                    <a style="border-radius: 14px;" class="btn btn-purple float-right" asp-action="Details" asp-route-id="@item.Id">
+                        <i class="bi bi-eye-fill"></i> Show Details
+                    </a>
+                            <a style="border-radius: 14px;" class="btn btn-success text-white "
+                        asp-controller="Orders"
+                        asp-action="AddItemToShoppingCart"
+                        asp-route-id="@item.Id">
+                        <i class="bi bi-cart-plus"></i> Add to Cart (Price @item.Price.ToString("c"))
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+}
+</div>
+
+@await Html.PartialAsync("_CreateItem", "Books") 
